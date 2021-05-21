@@ -2,24 +2,26 @@ package com.hotelreservation;
 
 public class Hotel {
     public String hotelName;
-    public int weekDayRate,weekEndRate,totalRate;
+    public int weekDayRate,weekEndRate,totalRate,ratings;
     /**
-     * here i have created one more parameterised constructor which will initialise hotelName, weekday rate and weekEnd rate.
+     * here i have created one parameterised constructor which will initialise hotelName,weekday rate,weekEnd rate and ratings.
      * @param hotelName
      * @param weekDayRate
      * @param weekEndRate
+     * @param ratings
      */
-    public Hotel(String hotelName,int weekDayRate,int weekEndRate){
+    public Hotel(String hotelName,int weekDayRate,int weekEndRate,int ratings){
         this.hotelName=hotelName;
         this.weekDayRate=weekDayRate;
         this.weekEndRate=weekEndRate;
+        this.ratings=ratings;
     }
     /**
      * this is a overridden method which will print hotelname,weekdayrate and weekEnd rate.
      * @return
      */
     public String toString() {
-        return "Hotel: " + hotelName + "Weekday Rate: " + weekDayRate+" & WeekEnd Rate: "+weekEndRate+" & Totalrate is: "+totalRate;
+        return "Hotel: " + hotelName + "Weekday Rate: " + weekDayRate+" & WeekEnd Rate: "+weekEndRate+" & Totalrate is: "+totalRate+" & Rating: "+ratings;
     }
     /**
      * here i have used setter and getter method to set name and rate and according to that will get the value.
