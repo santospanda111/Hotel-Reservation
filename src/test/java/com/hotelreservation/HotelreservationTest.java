@@ -17,4 +17,22 @@ public class HotelreservationTest {
         List hotelList = hotelReservationService.getHotels();
         Assertions.assertTrue(hotelList.contains(hotel));
     }
+
+    /**
+     * this test case will check the cheapestHotel from the list according to the days.
+     */
+    @Test
+    public void shouldBeAbleToReturnCheapestHotel() {
+        HotelReservationServices hotelReservationService1 = new HotelReservationServices();
+        Hotel Lakewood = new Hotel("Lakewood",110);
+        Hotel Bridgewood = new Hotel("Bridgewood",160);
+        Hotel RidgeWood = new Hotel("Ridgewood",220);
+        hotelReservationService1.addHotel(Lakewood);
+        hotelReservationService1.addHotel(Bridgewood);
+        hotelReservationService1.addHotel(RidgeWood);
+        int Days = hotelReservationService1.NoOfDays("2021-05-21","2021-05-26");
+        Hotel result = hotelReservationService1.findCheapestHotel(Days);
+        System.out.println(result);
+        Assertions.assertEquals(Lakewood,result);
+    }
 }
