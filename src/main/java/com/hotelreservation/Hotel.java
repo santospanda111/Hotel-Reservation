@@ -2,19 +2,9 @@ package com.hotelreservation;
 
 public class Hotel {
     public String hotelName;
-    public int dailyRate,weekDayRate,weekEndRate;
+    public int weekDayRate,weekEndRate,totalRate;
     /**
-     * this one is a parameterised constructor which will initiate the value.
-     * @param hotelName
-     * @param dailyRate
-     */
-    public Hotel(String hotelName, int dailyRate) {
-        this.hotelName = hotelName;
-        this.dailyRate = dailyRate;
-    }
-
-    /**
-     * here i have created one more parameterised constructor for testcase which will initialise weekday rate and weekEnd rate.
+     * here i have created one more parameterised constructor which will initialise hotelName, weekday rate and weekEnd rate.
      * @param hotelName
      * @param weekDayRate
      * @param weekEndRate
@@ -29,7 +19,7 @@ public class Hotel {
      * @return
      */
     public String toString() {
-        return "Hotel: " + hotelName + "Weekday Rate: " + weekDayRate+" & WeekEnd Rate: "+weekEndRate;
+        return "Hotel: " + hotelName + "Weekday Rate: " + weekDayRate+" & WeekEnd Rate: "+weekEndRate+" & Totalrate is: "+totalRate;
     }
     /**
      * here i have used setter and getter method to set name and rate and according to that will get the value.
@@ -42,17 +32,26 @@ public class Hotel {
         this.hotelName = hotelName;
     }
     /**
-     * this method will take the no.ofdays and then set the rate.
-     * @param noOfDays
+     * In this setter method i have taken the parameters below and added totalRate which will add both weekdayRate and weekEndRate.
+     * @param weekDayCount
+     * @param weekEndsCount
      */
-    public void setRate(int noOfDays) {
-        this.dailyRate = this.dailyRate*noOfDays;
+    public void setRate(int weekDayCount,int weekEndsCount){
+        this.weekDayRate = this.weekDayRate*weekDayCount;
+        this.weekEndRate = this.weekEndRate*weekEndsCount;
+        this.totalRate = this.weekDayRate + this.weekEndRate;
     }
     /**
-     * @return total rate.
+     * @return weekDaysRate+weekEndsRate
      */
     public int getRate() {
-        return dailyRate;
+        return this.weekDayRate + this.weekEndRate;
+    }
+    /**
+     * @return totalrate
+     */
+    public int getTotalRate() {
+        return this.totalRate;
     }
     /**
      * here i have added welcome message.
